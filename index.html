@@ -1,62 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Afghanistan Walk | Discover Afghanistan Tourism</title>
     <meta name="description"
         content="Discover Afghanistan's tourist destinations, hotels, restaurants, parks, transportation and travel experiences with Afghanistan Walk.">
-    <meta property="og:title"
-      content="Afghanistan Walk | Discover Afghanistan Tourism">
+    <meta property="og:title" content="Afghanistan Walk | Discover Afghanistan Tourism">
 
-      <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
 
-      <link
-  href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
-  rel="stylesheet">
     <link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="stylesheet" href="css/style.css">
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header id="navbar">
-        <nav class="navbar">
-            <div class="container">
-                <a href="#" class="brand">
-                    <span class="brand-mark"><i class="fa-solid fa-mountain-sun"></i></span>
-                    Afghanistan Walk
-                </a>
+   <header id="navbar">
+  <nav class="navbar">
+    <div class="container">
+      <a href="#hero-slider" class="brand"><span class="brand-mark"><i class="fa-solid fa-mountain-sun"></i></span> Afghanistan Walk</a>
 
-                <ul class="nav-link">
-                    <li><a href="#home" class="active">Home</a></li>
-                    <li><a href="#home" class="active">Destination</a></li>
-                    <li><a href="#home" class="active">Hotels</a></li>
-                    <li><a href="#home" class="active">Restaurants</a></li>
-                    <li><a href="#home" class="active">Parks</a></li>
-                    <li><a href="#home" class="active">Cars</a></li>
-                    <li><a href="#home" class="active">Busness</a></li>
-                </ul>
+      <ul class="nav-links">
+        <li><a href="#hero-slider" class="active" data-i18n="nav_home">Home</a></li>
+        <li><a href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
+        <li><a href="#hotels" data-i18n="nav_hotels">Hotels</a></li>
+        <li><a href="restaurants.html" data-i18n="nav_restaurants">Restaurants</a></li>
+        <li><a href="parks.html" data-i18n="nav_parks">Parks</a></li>
+        <li><a href="#cars" data-i18n="nav_cars">Cars</a></li>
+        <li><a href="#business-registration" data-i18n="nav_business">Business</a></li>
+      </ul>
 
-                <div class="nav-actions">
-                    <!-- <div class="nav-search">
+      <div class="nav-actions">
+        <div class="nav-search" data-nav-search>
+          <div class="nav-search-field">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" data-i18n-placeholder="search_placeholder" placeholder="Search destinations, hotels, restaurants or places...">
+            <button class="nav-search-close" data-search-close aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <button class="icon-btn nav-search-icon-btn" data-search-open aria-label="Open search"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
 
-                    </div> -->
+        <button class="btn btn-outline btn-sm" data-lang-toggle aria-label="Switch language">دری</button>
 
-                    <button class="btn btn-outline btn-sm">دری</button>
-                    <button class="btn btn-primary btn-sm login-btn">
-                       <i class="fa-solid fa-user"></i> Login
-                    </button>
+        <button class="btn btn-primary btn-sm login-btn" data-open-modal="login-modal"><i class="fa-solid fa-user"></i> <span data-i18n="login_btn">Login</span></button>
 
-                    <div class="user-chip">
-                        <span class="avatar">B</span>
-                        <span>Bashir</span>
-                        <i class="fa-solid fa-bars"></i>
-                    </div>
-                </div>
-            </div>
-        </nav>
+        <div class="user-chip" data-sidebar-toggle>
+          <span class="avatar" data-user-avatar>B</span>
+          <span data-user-name>Bashir</span>
+          <i class="fa-solid fa-bars"></i>
+        </div>
 
-    </header>
+        <button class="icon-btn hamburger" id="mobile-menu-btn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Simple mobile nav panel -->
+  <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
+    <ul style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
+      <li><a href="#hero-slider" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_home">Home</a></li>
+      <li><a href="destinations.html" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_destinations">Destinations</a></li>
+      <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_hotels">Hotels</a></li>
+      <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_restaurants">Restaurants</a></li>
+      <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_parks">Parks</a></li>
+      <li><a href="#cars" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_cars">Cars</a></li>
+      <li><a href="#business-registration" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_business">Business</a></li>
+    </ul>
+  </div>
+</header>
 </body>
+
 </html>
