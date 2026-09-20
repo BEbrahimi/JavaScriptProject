@@ -2,76 +2,248 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afghanistan Walk | Discover Afghanistan Tourism</title>
-    <meta name="description"
-        content="Discover Afghanistan's tourist destinations, hotels, restaurants, parks, transportation and travel experiences with Afghanistan Walk.">
-    <meta property="og:title" content="Afghanistan Walk | Discover Afghanistan Tourism">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Afghanistan Walk | Discover Afghanistan Tourism</title>
+  <meta name="description"
+    content="Discover Afghanistan's tourist destinations, hotels, restaurants, parks, transportation and travel experiences with Afghanistan Walk.">
+  <meta property="og:title" content="Afghanistan Walk | Discover Afghanistan Tourism">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-   <header id="navbar">
-  <nav class="navbar">
-    <div class="container">
-      <a href="#hero-slider" class="brand"><span class="brand-mark"><i class="fa-solid fa-mountain-sun"></i></span> Afghanistan Walk</a>
+  <header id="navbar">
+    <nav class="navbar">
+      <div class="container">
+        <a href="#hero-slider" class="brand"><span class="brand-mark"><i class="fa-solid fa-mountain-sun"></i></span>
+          Afghanistan Walk</a>
 
-      <ul class="nav-links">
-        <li><a href="#hero-slider" class="active" data-i18n="nav_home">Home</a></li>
-        <li><a href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
-        <li><a href="#hotels" data-i18n="nav_hotels">Hotels</a></li>
-        <li><a href="restaurants.html" data-i18n="nav_restaurants">Restaurants</a></li>
-        <li><a href="parks.html" data-i18n="nav_parks">Parks</a></li>
-        <li><a href="#cars" data-i18n="nav_cars">Cars</a></li>
-        <li><a href="#business-registration" data-i18n="nav_business">Business</a></li>
-      </ul>
+        <ul class="nav-links">
+          <li><a href="#hero-slider" class="active" data-i18n="nav_home">Home</a></li>
+          <li><a href="destinations.html" data-i18n="nav_destinations">Destinations</a></li>
+          <li><a href="#hotels" data-i18n="nav_hotels">Hotels</a></li>
+          <li><a href="restaurants.html" data-i18n="nav_restaurants">Restaurants</a></li>
+          <li><a href="parks.html" data-i18n="nav_parks">Parks</a></li>
+          <li><a href="#cars" data-i18n="nav_cars">Cars</a></li>
+          <li><a href="#business-registration" data-i18n="nav_business">Business</a></li>
+        </ul>
 
-      <div class="nav-actions">
-        <div class="nav-search" data-nav-search>
-          <div class="nav-search-field">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="search" data-i18n-placeholder="search_placeholder" placeholder="Search destinations, hotels, restaurants or places...">
-            <button class="nav-search-close" data-search-close aria-label="Close search"><i class="fa-solid fa-xmark"></i></button>
+        <div class="nav-actions">
+          <div class="nav-search" data-nav-search>
+            <div class="nav-search-field">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input type="search" data-i18n-placeholder="search_placeholder"
+                placeholder="Search destinations, hotels, restaurants or places...">
+              <button class="nav-search-close" data-search-close aria-label="Close search"><i
+                  class="fa-solid fa-xmark"></i></button>
+            </div>
+            <button class="icon-btn nav-search-icon-btn" data-search-open aria-label="Open search"><i
+                class="fa-solid fa-magnifying-glass"></i></button>
           </div>
-          <button class="icon-btn nav-search-icon-btn" data-search-open aria-label="Open search"><i class="fa-solid fa-magnifying-glass"></i></button>
+
+          <button class="btn btn-outline btn-sm" data-lang-toggle aria-label="Switch language">دری</button>
+
+          <button class="btn btn-primary btn-sm login-btn" data-open-modal="login-modal"><i
+              class="fa-solid fa-user"></i> <span data-i18n="login_btn">Login</span></button>
+
+          <div class="user-chip" data-sidebar-toggle>
+            <span class="avatar" data-user-avatar>B</span>
+            <span data-user-name>Bashir</span>
+            <i class="fa-solid fa-bars"></i>
+          </div>
+
+          <button class="icon-btn hamburger" id="mobile-menu-btn" aria-label="Open menu"><i
+              class="fa-solid fa-bars"></i></button>
         </div>
-
-        <button class="btn btn-outline btn-sm" data-lang-toggle aria-label="Switch language">دری</button>
-
-        <button class="btn btn-primary btn-sm login-btn" data-open-modal="login-modal"><i class="fa-solid fa-user"></i> <span data-i18n="login_btn">Login</span></button>
-
-        <div class="user-chip" data-sidebar-toggle>
-          <span class="avatar" data-user-avatar>B</span>
-          <span data-user-name>Bashir</span>
-          <i class="fa-solid fa-bars"></i>
-        </div>
-
-        <button class="icon-btn hamburger" id="mobile-menu-btn" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
       </div>
-    </div>
-  </nav>
+    </nav>
 
-  <!-- Simple mobile nav panel -->
-  <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
-    <ul style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
-      <li><a href="#hero-slider" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_home">Home</a></li>
-      <li><a href="destinations.html" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_destinations">Destinations</a></li>
-      <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_hotels">Hotels</a></li>
-      <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_restaurants">Restaurants</a></li>
-      <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_parks">Parks</a></li>
-      <li><a href="#cars" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_cars">Cars</a></li>
-      <li><a href="#business-registration" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_business">Business</a></li>
-    </ul>
-  </div>
-</header>
+    <!-- Simple mobile nav panel -->
+    <div id="mobile-menu" class="container" style="display:none;padding-bottom:16px;">
+      <ul
+        style="display:flex;flex-direction:column;gap:4px;background:var(--white);border:1px solid var(--border);border-radius:var(--radius-md);padding:10px;box-shadow:var(--shadow-soft);">
+        <li><a href="#hero-slider" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_home">Home</a>
+        </li>
+        <li><a href="destinations.html" style="display:block;padding:10px 8px;font-weight:600;"
+            data-i18n="nav_destinations">Destinations</a></li>
+        <li><a href="#hotels" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_hotels">Hotels</a>
+        </li>
+        <li><a href="restaurants.html" style="display:block;padding:10px 8px;font-weight:600;"
+            data-i18n="nav_restaurants">Restaurants</a></li>
+        <li><a href="parks.html" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_parks">Parks</a>
+        </li>
+        <li><a href="#cars" style="display:block;padding:10px 8px;font-weight:600;" data-i18n="nav_cars">Cars</a></li>
+        <li><a href="#business-registration" style="display:block;padding:10px 8px;font-weight:600;"
+            data-i18n="nav_business">Business</a></li>
+      </ul>
+    </div>
+  </header>
+<div id="sidebar-mount"></div>
+<button class="sidebar-toggle" data-sidebar-toggle aria-label="Open dashboard menu"><i class="fa-solid fa-bars"></i></button>
+
+  <main>
+    <!-- Hero Slider -->
+    <section id="hero-slider" class="hero-slider" data-hero-slider aria-roledescription="carousel"
+      aria-label="Afghanistan destinations">
+      <div class="slider-track">
+
+        <div class="slide is-active">
+          <img src="assets/images/banner1.jpeg" alt="Bamyan valley and cliffs">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_bamyan_loc">Bamyan</span></span>
+            <h1 data-i18n="slide_bamyan_title">Discover the beauty of Afghanistan</h1>
+            <p data-i18n="slide_bamyan_desc">Explore breathtaking landscapes, historical heritage and unforgettable
+              experiences.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="assets/images/banner2.jpeg" alt="Band-e Amir lakes">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_bandeamir_loc">Band-e Amir</span></span>
+            <h1 data-i18n="slide_bandeamir_title">Turquoise lakes carved by nature</h1>
+            <p data-i18n="slide_bandeamir_desc">Afghanistan's first national park, a chain of high-altitude lakes unlike
+              anywhere else.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="assets/images/banner3.jpeg" alt="Panjshir valley">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_panjshir_loc">Panjshir</span></span>
+            <h1 data-i18n="slide_panjshir_title">Valleys carved between the peaks</h1>
+            <p data-i18n="slide_panjshir_desc">Orchards, rivers and mountain villages beneath the Hindu Kush.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/seed/slide-herat/1600/900" alt="Herat citadel">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_herat_loc">Herat</span></span>
+            <h1 data-i18n="slide_herat_title">Walk through 2,000 years of history</h1>
+            <p data-i18n="slide_herat_desc">The Herat Citadel and old city streets tell stories of empires past.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/seed/slide-balkh/1600/900" alt="Balkh landmarks">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_balkh_loc">Balkh</span></span>
+            <h1 data-i18n="slide_balkh_title">The mother of all cities</h1>
+            <p data-i18n="slide_balkh_desc">Ancient ruins and the turquoise-tiled shrine of Mazar-i-Sharif.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/seed/slide-wakhan/1600/900" alt="Wakhan corridor">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_wakhan_loc">Wakhan</span></span>
+            <h1 data-i18n="slide_wakhan_title">A frontier at the roof of the world</h1>
+            <p data-i18n="slide_wakhan_desc">High-altitude wilderness, nomadic herders and glacier-fed rivers.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/seed/slide-nuristan/1600/900" alt="Nuristan highlands">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_nuristan_loc">Nuristan</span></span>
+            <h1 data-i18n="slide_nuristan_title">Forested valleys, rarely seen</h1>
+            <p data-i18n="slide_nuristan_desc">Carved wooden villages tucked into some of the country's greenest
+              terrain.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/seed/slide-badakhshan/1600/900" alt="Badakhshan mountains">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_badakhshan_loc">Badakhshan</span></span>
+            <h1 data-i18n="slide_badakhshan_title">Where the Pamir mountains begin</h1>
+            <p data-i18n="slide_badakhshan_desc">Remote peaks, lapis mines and some of Central Asia's highest passes.
+            </p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/seed/slide-kabul/1600/900" alt="Kabul cityscape">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_kabul_loc">Kabul</span></span>
+            <h1 data-i18n="slide_kabul_title">A capital of markets and mountains</h1>
+            <p data-i18n="slide_kabul_desc">Historic gardens, bustling bazaars and a skyline framed by peaks.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="slide">
+          <img src="https://picsum.photos/seed/slide-ghazni/1600/900" alt="Ghazni minarets">
+          <div class="slide-overlay"></div>
+          <div class="slide-content">
+            <span class="slide-location"><i class="fa-solid fa-location-dot"></i> <span
+                data-i18n="slide_ghazni_loc">Ghazni</span></span>
+            <h1 data-i18n="slide_ghazni_title">Twin minarets of a former empire</h1>
+            <p data-i18n="slide_ghazni_desc">Once a capital of learning and trade along the old Silk Road.</p>
+            <a href="destinations.html" class="btn btn-primary"><span data-i18n="explore_now">Explore Now</span> <i
+                class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="slider-controls">
+        <button class="slider-arrow" data-slide-prev aria-label="Previous slide"><i
+            class="fa-solid fa-chevron-left"></i></button>
+        <button class="slider-arrow" data-slide-next aria-label="Next slide"><i
+            class="fa-solid fa-chevron-right"></i></button>
+      </div>
+      <div class="slider-dots"></div>
+    </section>
+  </main>
+
+
+
+
+
 </body>
 
 </html>
