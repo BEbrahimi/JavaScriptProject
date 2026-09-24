@@ -16,6 +16,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/quickSearch.css">
 </head>
 
 <body>
@@ -238,6 +239,43 @@
       </div>
       <div class="slider-dots"></div>
     </section>
+
+    <section class="quick-search" id="quick-search">
+      <div class="container">
+        <form class="quick-search-panel" id="quick-search-form">
+          <div class="qs-input">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" name="q" data-i18n-placeholder="qs_placeholder" placeholder="Search destinations, hotels, restaurants or places...">
+
+          </div>
+          <select name="category" id="qs-select" class="qs-select">
+            <option value="all" data-i18n="qs_details">All</option>
+            <option value="destination" data-i18n="qs_details">Destinations</option>
+            <option value="hotel" data-i18n="qs_details">Hotels</option>
+            <option value="all" data-i18n="qs_details">All</option>
+          </select>
+
+          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="qs_search">Search</span></button>
+
+
+        </form>
+      </div>
+    </section>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
   </main>
 
 
@@ -245,5 +283,5 @@
 
 
 </body>
-
+<script src="js/slider.js"></script>
 </html>
