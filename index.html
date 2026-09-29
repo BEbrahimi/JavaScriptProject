@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/quickSearch.css">
+  <link rel="stylesheet" href="css/destination.css">
 </head>
 
 <body>
@@ -86,8 +87,9 @@
       </ul>
     </div>
   </header>
-<div id="sidebar-mount"></div>
-<button class="sidebar-toggle" data-sidebar-toggle aria-label="Open dashboard menu"><i class="fa-solid fa-bars"></i></button>
+  <div id="sidebar-mount"></div>
+  <button class="sidebar-toggle" data-sidebar-toggle aria-label="Open dashboard menu"><i
+      class="fa-solid fa-bars"></i></button>
 
   <main>
     <!-- Hero Slider -->
@@ -245,7 +247,8 @@
         <form class="quick-search-panel" id="quick-search-form">
           <div class="qs-input">
             <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" name="q" data-i18n-placeholder="qs_placeholder" placeholder="Search destinations, hotels, restaurants or places...">
+            <input type="text" name="q" data-i18n-placeholder="qs_placeholder"
+              placeholder="Search destinations, hotels, restaurants or places...">
 
           </div>
           <select name="category" id="qs-select" class="qs-select">
@@ -255,27 +258,66 @@
             <option value="all" data-i18n="qs_details">All</option>
           </select>
 
-          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i> <span data-i18n="qs_search">Search</span></button>
+          <button class="btn btn-primary" type="submit"><i class="fa-solid fa-magnifying-glass"></i> <span
+              data-i18n="qs_search">Search</span></button>
 
 
         </form>
       </div>
     </section>
 
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <section id="destinations" class="section section--white">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="section-eyebrow">
+              <i class="fa-solid fa-compass"></i>
+              <span>Tourist Destinations</span>
+            </span>
+
+            <h2>Landscapes and landmarks<br>
+              across every province
+            </h2>
+
+            <p>
+              From turquoise lakes to Silk Road citadels,
+              these are the places travelers come to Afghanistan to see.
+            </p>
+          </div>
+        </div>
+
+        <div class="destination-toolbar">
+
+          <div class="destination-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="destination-search" placeholder="Search destinations...">
+          </div>
+
+          <select id="province-filter">
+            <option value="all">All Provinces</option>
+          </select>
+
+        </div>
+
+        <div class="destination-grid" id="destinations-grid"></div>
+        <div class="destination-empty" id="destination-epmty" hidden>
+          <i class="fa-solid fa-map-location-dot"></i>
+          <h3>No Destination found</h3>
+          <p>Try another destination or province.</p>
+        </div>
+        <div class="pagination" id="destination-pagination"></div>
+
+
+        <div id="destination-empty" class="destination-empty" hidden>
+          <i class="fa-solid fa-map-location-dot"></i>
+          <h3>No destination found</h3>
+          <p>Try another destination or province.</p>
+        </div>
 
 
 
-
+      </div>
+    </section>
   </main>
 
 
@@ -284,4 +326,6 @@
 
 </body>
 <script src="js/slider.js"></script>
+<script src="js/destination.js"></script>
+
 </html>
