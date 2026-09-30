@@ -397,73 +397,77 @@
                 "Rolling hills and natural landscapes in western Afghanistan.",
             rating: "4.3",
             reviews: "92",
-            image: "https://picsum.photos/seed/badghis/800/600"
+            image: "../assets/images/banner4.jpeg"
         }
     ];
 
-    function createCard(description) {
-        return `
-            <article class="destination-card">
-                <div class="destination-image">
-                    <img
-                    src="${description.image}"
-                    alt="${description.name}"
-                    loading ="lazy"
-                    >
+    function createCard(destination) {
+    return `
+        <article class="destination-card">
 
-                    <span class="province-badge">
-                        <i class="fa-solid fa-location-dot"></i>
-                        ${destination.province}
-                    </span>
+            <div class="destination-image">
 
-                    <button
-                        class="favorite-btn"
-                        type="button"
-                        aria-label="Add to favorites"
-                    >
-                        <i class="fa-regular fa-heart"></i>
-                    </button>
+                <img
+                    src="${destination.image}"
+                    alt="${destination.name}"
+                    loading="lazy"
+                >
 
-                    </div>
+                <span class="province-badge">
+                    <i class="fa-solid fa-location-dot"></i>
+                    ${destination.province}
+                </span>
 
-                    <div class="destination-content">
+                <button
+                    class="favorite-btn"
+                    type="button"
+                    aria-label="Add to favorites"
+                >
+                    <i class="fa-regular fa-heart"></i>
+                </button>
 
-                    <span class="destination-type">
-                        <i class="fa-solid fa-tag"></i>
-                        ${destination.type}
-                    </span>
+            </div>
 
-                    <h3>${destination.name}</h3>
+            <div class="destination-content">
 
-                    <p>${destination.description}</p>
+                <span class="destination-type">
+                    <i class="fa-solid fa-tag"></i>
+                    ${destination.type}
+                </span>
 
-                    <div class="destination-rating">
+                <h3>${destination.name}</h3>
 
-                        <span>
+                <p>${destination.description}</p>
+
+                <div class="destination-rating">
+
+                    <span>
                         <i class="fa-solid fa-star"></i>
                         ${destination.rating}
-                        </span>
+                    </span>
 
-                        <span>
+                    <span>
                         (${destination.reviews} reviews)
-                        </span>
+                    </span>
 
-                    </div>
+                </div>
 
-                    <div class="destination-footer">
+                <div class="destination-footer">
 
-                        <button
+                    <button
                         class="explore-btn"
                         type="button"
-                        >
+                    >
                         Explore
-                        </button>
+                    </button>
 
-                    </div>
                 </div>
-            </article>
-        `;
-    }
+
+            </div>
+
+        </article>
+    `;
+}
 
     function renderCards(){
         const start = (currentPage - 1) * ITEMS_PER_PAGE;
@@ -474,7 +478,7 @@
         emptyMessage.hidden = filteredDestinations.length !== 0;
 
         renderPagination();
-        initializeCardEvents();
+        // initializeCardEvents();
     }
     function renderPagination(){
         const totalPages = Math.ceil(filteredDestinations.length / ITEMS_PER_PAGE);
@@ -487,7 +491,7 @@
         const previousButton = document.createElement("button");
         previousButton.className ="pagination-btn";
         previousButton.innerHTML =`
-            <i class="fa-solid fa-chevron-left></i>
+            <i class="fa-solid fa-chevron-left"></i>
         `;
 
         previousButton.disabled = currentPage ===1;
@@ -527,7 +531,7 @@
 
         nextButton.className="pagination-btn";
         nextButton.innerHTML = `
-             <i class="fa-solid fa-chevron-right></i>
+             <i class="fa-solid fa-chevron-right"></i>
         `;
 
         nextButton.disabled = currentPage === totalPages;
@@ -540,7 +544,7 @@
 
             }
         });
-        pagination.appendChild(button);
+        pagination.appendChild(nextButton);
 
     
     }
@@ -554,7 +558,37 @@
             block:"start"
         });
     }
+    function filterDestinations(){
+        const searchValue = searchInput.value.trim().toLowerCase();
+        const provinceValue = provinceFilter.value;
 
+        filteredDestinations = destinations.filter(destination=>{
+            const matchesSeach = destination.name.toLowerCase().includes(searchValue) ||
+            destination.province.toLowerCase().includes(searchValue) ||
+            destination.type.toLowerCase().includes(searchValue);
+
+            const matchesProvince = provinceValue === "all" || destination.province === provinceValue;
+
+            return (
+                matchesSeach &&
+                matchesProvince
+            );
+
+        });
+
+        currentPage = 1;
+        renderCards();
+    }
+
+
+
+
+    searchInput.addEventListener(
+        "input",
+         filterDestinations
+    );
+
+ filteredDestinations =[...destinations]
  renderCards();
 })();
 
