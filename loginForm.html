@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Login & Register</title>
+
+     <link rel="stylesheet" href="css/login.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main class="auto-container">
+        <section class="auto-box">
+            <div class="forms-container">
+
+                <!-- LOGIN -->
+                <div class="form login-form">
+
+                    <div class="form-content">
+
+                        <span class="form-icon">🔐</span>
+
+                        <h1>Welcome Back</h1>
+
+                        <p class="form-subtitle">
+                            Login to continue your journey
+                        </p>
+
+                        <form id="loginForm">
+
+                            <div class="input-group">
+                                <label>Email Address</label>
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+                            </div>
+
+                            <div class="input-group">
+                                <label>Password</label>
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    required
+                                >
+                            </div>
+
+                            <button type="submit" class="main-btn">
+                                Login
+                            </button>
+
+                            <p id="loginMessage" class="message"></p>
+
+                        </form>
+
+                        <p class="mobile-switch">
+                            Don't have an account?
+                            <button id="showRegister">
+                                Register
+                            </button>
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- REGISTER -->
+                <div class="form register-form">
+
+                    <div class="form-content">
+
+                        <span class="form-icon">✨</span>
+
+                        <h1>Create Account</h1>
+
+                        <p class="form-subtitle">
+                            Start your journey with us
+                        </p>
+
+                        <form id="registerForm">
+
+                            <div class="input-group">
+                                <label>Full Name</label>
+                                <input
+                                    type="text"
+                                    id="registerName"
+                                    placeholder="Enter your full name"
+                                    required
+                                >
+                            </div>
+
+                            <div class="input-group">
+                                <label>Email Address</label>
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                >
+                            </div>
+
+                            <div class="input-group">
+                                <label>Password</label>
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    placeholder="Create a password"
+                                    required
+                                >
+                            </div>
+
+                            <div class="input-group">
+                                <label>Confirm Password</label>
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm your password"
+                                    required
+                                >
+                            </div>
+
+                            <button type="submit" class="main-btn">
+                                Create Account
+                            </button>
+
+                            <p id="registerMessage" class="message"></p>
+
+                        </form>
+
+                        <p class="mobile-switch">
+                            Already have an account?
+                            <button id="showLogin">
+                                Login
+                            </button>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="slider-container">
+
+                <div class="slider-panel">
+
+                    <div class="slider-content login-panel">
+
+                        <span class="panel-icon">🌸</span>
+
+                        <h2>Hello, Friend!</h2>
+
+                        <p>
+                            Don't have an account yet?
+                            Create one and start exploring.
+                        </p>
+
+                        <button class="outline-btn" id="registerBtn">
+                            Register
+                        </button>
+
+                    </div>
+
+
+                    <div class="slider-content register-panel">
+
+                        <span class="panel-icon">💜</span>
+
+                        <h2>Welcome Back!</h2>
+
+                        <p>
+                            Already have an account?
+                            Login and continue where you left off.
+                        </p>
+
+                        <button class="outline-btn" id="loginBtn">
+                            Login
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+</body>
+</html>

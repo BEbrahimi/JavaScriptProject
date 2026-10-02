@@ -478,7 +478,7 @@
         emptyMessage.hidden = filteredDestinations.length !== 0;
 
         renderPagination();
-        // initializeCardEvents();
+        initializeCardEvents();
     }
     function renderPagination(){
         const totalPages = Math.ceil(filteredDestinations.length / ITEMS_PER_PAGE);
@@ -580,16 +580,49 @@
         renderCards();
     }
 
+    function populateProvinces(){
+        const provinces = [
+            ...new Set(
+                destinations.map(
+                    destination =>
+                        destination.province
+                )
+            )
+        ].sort();
+
+        provinces.forEach(province =>{
+            const option = document.createElement("option");
+            option.value = province;
+            option.textContent = province;
+            provinceFilter.appendChild(option);
+        });
+    }
 
 
+    function initializeCardEvents(){
+        const favoriteButton = document.querySelectorAll (".favorite-btn");
+        favoriteButton.forEach(button =>{
+            button.addEventListener("click", function(){
+                const icon = this.querySelector("i");
+                icon.classList.toggle("fa-regular");
+                icon.classList.toggle("fa-solid");
 
+                this.classList.toggle("is-favorite");
+                
+            });
+        });
+    }
+
+    provinceFilter.addEventListener("change",filterDestinations)
     searchInput.addEventListener(
         "input",
          filterDestinations
     );
 
  filteredDestinations =[...destinations]
+ populateProvinces();
  renderCards();
+
 })();
 
 
