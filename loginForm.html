@@ -1,29 +1,37 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login & Register</title>
 
-    <link rel="stylesheet" href="css/login.css">
+    <title>Login & Register</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Sora:wght@400;500;600&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Sora:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/login.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
-    <main class="auto-container">
-        <section class="auto-box">
+
+    <main class="auth-container">
+
+        <section class="auth-box">
+
+            <!-- ================= FORM SECTION ================= -->
             <div class="forms-container">
 
                 <!-- LOGIN -->
                 <div class="form login-form">
 
+                    <a href="index.html" class="back-home">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back to Home
+</a>
                     <div class="form-content">
 
                         <span class="form-icon">🔐</span>
@@ -38,12 +46,22 @@
 
                             <div class="input-group">
                                 <label>Email Address</label>
-                                <input type="email" id="loginEmail" placeholder="Enter your email" required>
+                                <input
+                                    type="email"
+                                    id="loginEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                >
                             </div>
 
                             <div class="input-group">
                                 <label>Password</label>
-                                <input type="password" id="loginPassword" placeholder="Enter your password" required>
+                                <input
+                                    type="password"
+                                    id="loginPassword"
+                                    placeholder="Enter your password"
+                                    required
+                                >
                             </div>
 
                             <button type="submit" class="main-btn">
@@ -71,8 +89,7 @@
 
                     <div class="form-content">
 
-                        <span class="form-icon">✨</span>
-
+                      
                         <h1>Create Account</h1>
 
                         <p class="form-subtitle">
@@ -83,23 +100,42 @@
 
                             <div class="input-group">
                                 <label>Full Name</label>
-                                <input type="text" id="registerName" placeholder="Enter your full name" required>
+                                <input
+                                    type="text"
+                                    id="registerName"
+                                    placeholder="Enter your full name"
+                                    required
+                                >
                             </div>
 
                             <div class="input-group">
                                 <label>Email Address</label>
-                                <input type="email" id="registerEmail" placeholder="Enter your email" required>
+                                <input
+                                    type="email"
+                                    id="registerEmail"
+                                    placeholder="Enter your email"
+                                    required
+                                >
                             </div>
 
                             <div class="input-group">
                                 <label>Password</label>
-                                <input type="password" id="registerPassword" placeholder="Create a password" required>
+                                <input
+                                    type="password"
+                                    id="registerPassword"
+                                    placeholder="Create a password"
+                                    required
+                                >
                             </div>
 
                             <div class="input-group">
                                 <label>Confirm Password</label>
-                                <input type="password" id="confirmPassword" placeholder="Confirm your password"
-                                    required>
+                                <input
+                                    type="password"
+                                    id="confirmPassword"
+                                    placeholder="Confirm your password"
+                                    required
+                                >
                             </div>
 
                             <button type="submit" class="main-btn">
@@ -122,6 +158,10 @@
                 </div>
 
             </div>
+
+
+            <!-- ================= SLIDER PANEL ================= -->
+
             <div class="slider-container">
 
                 <div class="slider-panel">
@@ -164,9 +204,8 @@
                 </div>
 
             </div>
-
         </section>
     </main>
+<script src="js/login.js"></script>
 </body>
-
 </html>

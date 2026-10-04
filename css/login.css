@@ -1,35 +1,53 @@
+
 :root {
-  /* Palette */
-  --primary-lavender: #B9A7F2;
-  --light-lavender: #EDE8FB;
-  --soft-purple: #D9D1F7;
-  --cream: #FFF4D6;
-  --light-beige: #F8F1E5;
-  --soft-plum: #8B6A8D;
-  --very-light-plum: #F4ECF5;
-  --soft-mint: #EAF7F1;
-  --soft-sky: #EAF6FB;
-  --white: #FFFFFF;
-  --bg-main: #FBFAFF;
-  --bg-card: #FFFFFF;
-  --text-main: #334155;
-  --text-secondary: #64748B;
-  --border: #E8E3F0;
 
-  /* Derived */
-  --shadow-soft: 0 10px 30px -12px rgba(139, 106, 141, 0.18);
-  --shadow-hover: 0 18px 40px -14px rgba(139, 106, 141, 0.28);
-  --radius-lg: 20px;
-  --radius-md: 14px;
-  --radius-sm: 10px;
-  --radius-pill: 999px;
+    --primary-lavender: #B9A7F2;
+    --light-lavender: #EDE8FB;
+    --soft-purple: #D9D1F7;
+    --cream: #FFF4D6;
+    --light-beige: #F8F1E5;
+    --soft-plum: #8B6A8D;
+    --very-light-plum: #F4ECF5;
+    --soft-mint: #EAF7F1;
+    --soft-sky: #EAF6FB;
 
-  /* Type */
-  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
-  --font-body: "Sora", "Segoe UI", system-ui, sans-serif;
+    --white: #FFFFFF;
+    --bg-main: #FBFAFF;
+    --bg-card: #FFFFFF;
 
-  --container: 1240px;
+    --text-main: #334155;
+    --text-secondary: #64748B;
+
+    --border: #E8E3F0;
+
+    --shadow-soft:
+        0 10px 30px -12px
+        rgba(139, 106, 141, 0.18);
+
+    --shadow-hover:
+        0 18px 40px -14px
+        rgba(139, 106, 141, 0.28);
+
+    --radius-lg: 20px;
+    --radius-md: 14px;
+    --radius-sm: 10px;
+    --radius-pill: 999px;
+
+    --font-display:
+        "Fraunces",
+        "Iowan Old Style",
+        Georgia,
+        serif;
+
+    --font-body:
+        "Sora",
+        "Segoe UI",
+        system-ui,
+        sans-serif;
+
+    --container: 1240px;
 }
+
 
 * {
     margin: 0;
@@ -64,24 +82,31 @@ body {
     color: var(--text-main);
 }
 
-.auto-container {
+
+
+.auth-container {
     width: 100%;
     max-width: 1050px;
     padding: 30px;
 }
 
 
-.auto-box {
+.auth-box {
     position: relative;
+
     width: 100%;
     height: 650px;
+
     background: var(--bg-card);
+
     border-radius: var(--radius-lg);
+
     box-shadow: var(--shadow-soft);
+
     overflow: hidden;
+
     border: 1px solid var(--border);
 }
-
 
 
 .forms-container {
@@ -99,12 +124,16 @@ body {
 
 .form {
     position: absolute;
+
     width: 50%;
     height: 100%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     padding: 50px;
+
     transition:
         transform 0.7s ease,
         opacity 0.7s ease;
@@ -113,17 +142,20 @@ body {
 
 .login-form {
     left: 0;
+
     transform: translateX(0);
+
     opacity: 1;
 }
 
 
 .register-form {
     left: 0;
+
     transform: translateX(100%);
+
     opacity: 0;
 }
-
 
 
 .form-content {
@@ -134,13 +166,19 @@ body {
 
 .form-icon {
     display: inline-flex;
+
     width: 55px;
     height: 55px;
+
     align-items: center;
     justify-content: center;
+
     border-radius: 50%;
+
     background: var(--light-lavender);
+
     font-size: 24px;
+
     margin-bottom: 20px;
 }
 
@@ -165,58 +203,88 @@ h1 {
 }
 
 
-.input-group{
+.input-group {
     margin-bottom: 18px;
 }
 
-.input-group label{
+
+.input-group label {
     display: block;
+
     font-size: 13px;
+
     font-weight: 600;
+
     margin-bottom: 8px;
+
     color: var(--text-main);
 }
 
 
-.input-group input{
+.input-group input {
     width: 100%;
+
     height: 52px;
+
     padding: 0 16px;
+
     border: 1px solid var(--border);
+
     border-radius: var(--radius-sm);
+
     background: var(--very-light-plum);
+
     color: var(--text-main);
+
     font-family: var(--font-body);
+
     outline: none;
+
     transition: 0.3s;
 }
 
-.input-group input:focus{
+
+.input-group input:focus {
     border-color: var(--primary-lavender);
+
     background: var(--white);
-    box-shadow: 0 0 0 4px rgba(185, 167, 242, 0.18);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(185, 167, 242, 0.18);
 }
 
-.input-group input::placeholder{
-    color: #94a3b8;
+
+.input-group input::placeholder {
+    color: #94A3B8;
 }
+
 
 .main-btn {
     width: 100%;
+
     height: 52px;
+
     border: none;
+
     border-radius: var(--radius-pill);
+
     background: var(--primary-lavender);
+
     color: var(--text-main);
+
     font-family: var(--font-body);
+
     font-size: 14px;
+
     font-weight: 600;
+
     cursor: pointer;
+
     margin-top: 10px;
+
     transition: 0.3s;
 }
-
-
 .main-btn:hover {
     transform: translateY(-2px);
 
@@ -227,10 +295,14 @@ h1 {
     box-shadow: var(--shadow-hover);
 }
 
+
 .message {
     min-height: 22px;
+
     margin-top: 14px;
+
     text-align: center;
+
     font-size: 13px;
 }
 
@@ -244,16 +316,21 @@ h1 {
     color: #C85C6A;
 }
 
-
 .slider-container {
     position: absolute;
+
     top: 0;
     right: 0;
+
     width: 50%;
     height: 100%;
+
     overflow: hidden;
+
     border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+
     z-index: 10;
+
     transition:
         transform 0.7s ease;
 }
@@ -279,10 +356,14 @@ h1 {
 
 .slider-content {
     position: absolute;
+
     width: 100%;
     height: 100%;
+
     padding: 70px;
+
     display: flex;
+
     flex-direction: column;
 
     align-items: center;
@@ -373,7 +454,6 @@ h1 {
     transform: translateY(-2px);
 }
 
-
 .auth-box.register-active
 .login-form {
     transform: translateX(-100%);
@@ -381,10 +461,64 @@ h1 {
     opacity: 0;
 }
 
+.back-home {
+    position: absolute;
+
+    top: 25px;
+    left: 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 15px;
+
+    border-radius: var(--radius-pill);
+
+    background: var(--light-lavender);
+
+    color: var(--soft-plum);
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    border: 1px solid var(--border);
+
+    transition: all 0.3s ease;
+}
+
+.back-home i {
+    font-size: 11px;
+
+    transition: transform 0.3s ease;
+}
+
+
+.back-home:hover {
+    background: var(--primary-lavender);
+
+    color: var(--white);
+
+    border-color: var(--primary-lavender);
+
+    transform: translateY(-2px);
+
+    box-shadow: var(--shadow-soft);
+}
+
+
+.back-home:hover i {
+    transform: translateX(-3px);
+}
 
 .auth-box.register-active
 .register-form {
-    transform: translateX(0);
+    transform: translateX(100%);
 
     opacity: 1;
 }
@@ -416,7 +550,6 @@ h1 {
 
     opacity: 1;
 }
-
 
 .mobile-switch {
     display: none;
@@ -540,4 +673,3 @@ h1 {
         font-size: 30px;
     }
 }
-
