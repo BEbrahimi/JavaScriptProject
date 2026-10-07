@@ -1,0 +1,412 @@
+/* =========================
+   SIDEBAR OVERLAY
+========================= */
+
+#sidebar-overlay {
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.45);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.3s ease;
+
+    z-index: 9998;
+
+}
+
+
+#sidebar-overlay.overlay-visible {
+
+    opacity: 1;
+
+    visibility: visible;
+
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+#app-sidebar {
+
+    position: fixed;
+
+    top: 0;
+
+    right: 0;
+
+    width: 320px;
+
+    max-width: 90%;
+
+    height: 100vh;
+
+    background: #ffffff;
+
+    box-shadow:
+        -8px 0 30px rgba(0, 0, 0, 0.15);
+
+    z-index: 9999;
+
+    transform: translateX(100%);
+
+    transition:
+        transform 0.35s ease;
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+/* =========================
+   SIDEBAR VISIBLE
+========================= */
+
+#app-sidebar.sidebar-visible {
+
+    transform: translateX(0);
+
+}
+
+
+/* =========================
+   CONTENT
+========================= */
+
+#app-sidebar .sidebar-content {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+}
+
+
+/* =========================
+   BRAND
+========================= */
+
+#app-sidebar .sidebar-brand {
+
+    height: 70px;
+
+    padding: 0 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+
+#app-sidebar .sidebar-brand a {
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: #222;
+
+}
+
+
+#app-sidebar #close-sidebar {
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    color: #555;
+
+}
+
+
+/* =========================
+   USER
+========================= */
+
+#app-sidebar .sidebar-header {
+
+    padding: 22px 20px;
+
+    display: flex;
+
+    gap: 14px;
+
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+
+.sidebar-avatar {
+
+    width: 52px;
+
+    height: 52px;
+
+    border-radius: 50%;
+
+    background: #B9A7F2;
+
+    color: white;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+}
+
+
+#app-sidebar .user-info {
+
+    display: flex;
+
+    flex-direction: column;
+
+    min-width: 0;
+
+}
+
+
+#app-sidebar .user-name {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #222;
+
+}
+
+
+#app-sidebar .user-email {
+
+    font-size: 12px;
+
+    color: #777;
+
+    margin-top: 3px;
+
+    word-break: break-word;
+
+}
+
+
+#app-sidebar .user-status {
+
+    margin-top: 7px;
+
+    font-size: 12px;
+
+    color: #35a853;
+
+}
+
+
+#app-sidebar .user-status i {
+
+    font-size: 8px;
+
+    margin-right: 4px;
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+#app-sidebar .sidebar-search {
+
+    padding: 15px 20px;
+
+}
+
+
+#app-sidebar .input-group {
+
+    display: flex;
+
+}
+
+
+#app-sidebar .form-control {
+
+    flex: 1;
+
+    min-width: 0;
+
+    padding: 10px 12px;
+
+    border: 1px solid #ddd;
+
+    outline: none;
+
+}
+
+
+#app-sidebar .input-group-text {
+
+    width: 42px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f5f5f5;
+
+    border: 1px solid #ddd;
+
+    border-left: none;
+
+}
+
+
+/* =========================
+   MENU
+========================= */
+
+#app-sidebar .sidebar-menu {
+
+    padding: 5px 12px 20px;
+
+}
+
+
+#app-sidebar .sidebar-menu ul {
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+
+#app-sidebar .header-menu {
+
+    padding: 15px 10px 7px;
+
+    color: #999;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+    font-weight: 700;
+
+}
+
+
+#app-sidebar .sidebar-menu li a {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 12px 13px;
+
+    color: #444;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    transition: 0.2s ease;
+
+}
+
+
+#app-sidebar .sidebar-menu li a:hover {
+
+    background: #f3efff;
+
+    color: #7c63c9;
+
+}
+
+
+#app-sidebar .sidebar-menu li a i {
+
+    width: 20px;
+
+    text-align: center;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+#app-sidebar .sidebar-footer {
+
+    height: 62px;
+
+    border-top: 1px solid #eeeeee;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+}
+
+
+#app-sidebar .sidebar-footer a,
+
+#app-sidebar .sidebar-footer button {
+
+    border: none;
+
+    background: transparent;
+
+    color: #555;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+}
+
+
+#app-sidebar .sidebar-footer button:hover,
+
+#app-sidebar .sidebar-footer a:hover {
+
+    color: #7c63c9;
+
+}

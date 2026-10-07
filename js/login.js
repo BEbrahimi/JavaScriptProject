@@ -176,7 +176,198 @@ registerForm.addEventListener("submit",
             showLoginForm();
         })
     }
-)
+);
+
+/* =========================
+   LOGIN
+========================= */
+const loginForm =
+    document.getElementById("loginForm");
+
+
+if (loginForm) {
+
+    loginForm.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document.getElementById(
+                    "loginEmail"
+                ).value.trim().toLowerCase();
+
+
+            const password =
+                document.getElementById(
+                    "loginPassword"
+                ).value;
+
+
+            /* =========================
+               GET USERS
+            ========================= */
+
+            const users = getUsers();
+
+
+            /* =========================
+               FIND USER
+            ========================= */
+
+            const user =
+                users.find(
+                    user =>
+                        user.email === email &&
+                        user.password === password
+                );
+
+
+            /* =========================
+               INVALID LOGIN
+            ========================= */
+
+            if (!user) {
+
+                Swal.fire({
+
+                    icon: "error",
+
+                    title: "Login Failed",
+
+                    text:
+                        "Invalid email or password.",
+
+                    confirmButtonText: "Try Again",
+
+                    confirmButtonColor: "#8B6A8D"
+
+                });
+
+                return;
+            }
+
+
+            /* =========================
+               CHECK EMAIL VERIFICATION
+            ========================= */
+
+            if (
+                user.emailVerified === false
+            ) {
+
+                Swal.fire({
+
+                    icon: "warning",
+
+                    title: "Email Not Verified",
+
+                    text:
+                        "Please verify your email before logging in.",
+
+                    confirmButtonText:
+                        "OK",
+
+                    confirmButtonColor:
+                        "#8B6A8D"
+
+                });
+
+                return;
+            }
+
+
+            /* =========================
+               DEFAULT ROLE
+            ========================= */
+
+            if (
+                user.role === undefined ||
+                user.role === null
+            ) {
+
+                user.role = 0;
+
+            }
+
+
+            /* =========================
+               SAVE CURRENT USER
+            ========================= */
+
+            setCurrentUser(user);
+
+
+            /* =========================
+               SAVE LOGIN TIME
+            ========================= */
+
+            localStorage.setItem(
+                "loginTime",
+                new Date().toISOString()
+            );
+
+
+            /* =========================
+               SUCCESS
+            ========================= */
+
+            Swal.fire({
+
+                icon: "success",
+
+                title:
+                    `Welcome, ${user.name}!`,
+
+                text:
+                    getRoleName(user.role),
+
+                timer: 1500,
+
+                showConfirmButton: false
+
+            }).then(() => {
+
+                window.location.href =
+                    "index.html";
+
+            });
+
+        }
+    );
+
+}
+
+/* =========================
+   REQUIRE LOGIN
+========================= */
+function requireLogin() {
+
+    if (isLoggedIn()) {
+        return true;
+    }
+
+    Swal.fire({
+        icon: "info",
+        title: "Login Required",
+        text:
+            "Please login first to use this feature.",
+        showCancelButton: true,
+        confirmButtonText: "Login",
+        cancelButtonText: "Cancel"
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            window.location.href =
+                "loginForm.html";
+
+        }
+    });
+
+    return false;
+}
 
 
 
