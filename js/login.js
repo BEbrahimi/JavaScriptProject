@@ -51,16 +51,22 @@ function saveUsers(users){
 // get current user
 
 function getCurrentUser(){
-    return JSON.parse(
+    try{
+        return JSON.parse(
        sessionStorage.getItem(
         CURRENT_USER_KEY
        ) 
     )|| null;
+    }
+    catch (error){
+        console.error("error", error);
+        return null;
+    }
 }
 
 // check login
 function isLoggedIn(){
-    return getCurrentUser() == null;
+    return getCurrentUser() !== null;
 }
 
 
@@ -70,7 +76,8 @@ function setCurrentUser(user){
     const sessionUser = {
         id: user.id,
         name:user.name,
-        email:user.email
+        email:user.email,
+        role: Number(user.role ?? 0)
     };
 
     sessionStorage.setItem(
@@ -91,93 +98,268 @@ function logoutUser(){
 // register
 
 const registerForm = document.getElementById("registerForm");
+if (registerForm) {
 
-registerForm.addEventListener("submit",
-    function (event){
-        event.preventDefault();
+    registerForm.addEventListener(
+        "submit",
+        function (event) {
 
-        const name = document.getElementById("registerName").value.trim();
-        const email = document.getElementById("registerEmail").value.trim().toLowerCase();
-        const password = document.getElementById("registerPassword").value;
-        const confirmPassword = document.getElementById("confirmPassword").value;
+            event.preventDefault();
 
-        const users = getUsers();
 
-        const existingUser = users.find(
-            user=>
-                user.email === email 
-        );
+            /** =========================
+             *  GET FORM DATA
+             * ========================= */
 
-        if(existingUser){
+            const name =
+                document.getElementById(
+                    "registerName"
+                )?.value
+                .trim();
+
+
+            const email =
+                document.getElementById(
+                    "registerEmail"
+                )?.value
+                .trim()
+                .toLowerCase();
+
+
+            const password =
+                document.getElementById(
+                    "registerPassword"
+                )?.value;
+
+
+            const confirmPassword =
+                document.getElementById(
+                    "confirmPassword"
+                )?.value;
+
+
+            if (
+                !name ||
+                !email ||
+                !password ||
+                !confirmPassword
+            ) {
+
+                Swal.fire({
+
+                    icon:
+                        "warning",
+
+                    title:
+                        "Missing Information",
+
+                    text:
+                        "Please complete all fields.",
+
+                    confirmButtonText:
+                        "OK",
+
+                    confirmButtonColor:
+                        "#8B6A8D"
+
+                });
+
+                return;
+
+            }
+
+
+            /** =========================
+             *  GET USERS
+             * ========================= */
+
+            const users =
+                getUsers();
+
+
+            /** =========================
+             *  CHECK DUPLICATE EMAIL
+             * ========================= */
+
+            const existingUser =
+                users.find(
+                    user =>
+                        user.email === email
+                );
+
+
+            if (existingUser) {
+
+                Swal.fire({
+
+                    icon:
+                        "warning",
+
+                    title:
+                        "Email Already Exists",
+
+                    text:
+                        "This email is already registered.",
+
+                    confirmButtonText:
+                        "OK",
+
+                    confirmButtonColor:
+                        "#8B6A8D"
+
+                });
+
+                return;
+
+            }
+
+
+            /** =========================
+             *  PASSWORD LENGTH
+             * ========================= */
+
+            if (
+                password.length < 6
+            ) {
+
+                Swal.fire({
+
+                    icon:
+                        "error",
+
+                    title:
+                        "Weak Password",
+
+                    text:
+                        "Password must contain at least 6 characters.",
+
+                    confirmButtonText:
+                        "Try Again",
+
+                    confirmButtonColor:
+                        "#8B6A8D"
+
+                });
+
+                return;
+
+            }
+
+
+            /** =========================
+             *  CONFIRM PASSWORD
+             * ========================= */
+
+            if (
+                password !==
+                confirmPassword
+            ) {
+
+                Swal.fire({
+
+                    icon:
+                        "error",
+
+                    title:
+                        "Password Mismatch",
+
+                    text:
+                        "Password and confirm password do not match.",
+
+                    confirmButtonText:
+                        "Try Again",
+
+                    confirmButtonColor:
+                        "#8B6A8D"
+
+                });
+
+                return;
+
+            }
+
+
+            /** =========================
+             *  CREATE NEW USER
+             * ========================= */
+
+            const newUser = {
+
+                id:
+                    Date.now(),
+
+                name:
+                    name,
+
+                email:
+                    email,
+
+                password:
+                    password,
+
+                role:
+                    0,
+
+                emailVerified:
+                    true,
+
+                createdAt:
+                    new Date().toISOString()
+
+            };
+
+
+            /** =========================
+             *  ADD USER
+             * ========================= */
+
+            users.push(
+                newUser
+            );
+
+
+            /** =========================
+             *  SAVE USERS
+             * ========================= */
+
+            saveUsers(
+                users
+            );
+
+
+            /** =========================
+             *  SUCCESS ALERT
+             * ========================= */
+
             Swal.fire({
-                icon: "warning",
-                title:"Email Already Exsits",
-                text: "This email is already registerd.",
-                confirmButtonText: "OK",
-                confirmButtoncolor:"#8B6A8D"
+
+                icon:
+                    "success",
+
+                title:
+                    "Account Created!",
+
+                text:
+                    `Welcome ${name}! Your account has been created successfully.`,
+
+                confirmButtonText:
+                    "Continue",
+
+                confirmButtonColor:
+                    "#8B6A8D"
+
+            }).then(() => {
+
+                registerForm.reset();
+
+                showLoginForm();
+
             });
-            return;
+
         }
+    );
 
-        // password
-        if(password.length < 6){
-            Swal.fire({
-                icon: "error",
-                title:"Weak Password",
-                text: "Password must contain at least 6 characters.",
-                confirmButtonText: "Try Again",
-                confirmButtoncolor:"#8B6A8D"
-            });
-            return;
-        }
-
-         // C_password
-        if(password !== confirmPassword){
-            Swal.fire({
-                icon: "error",
-                title:"Password Mismatch",
-                text: "Password must contain at least 6 characters.",
-                confirmButtonText: "Try Again",
-                confirmButtoncolor:"#8B6A8D"
-            });
-            return;
-        }
-
-        // create 
-
-
-        // 0 = user
-        // 1 = editor
-        // 2 = Manager
-        // 3 = Admin
-
-        const newUser = {
-            id: Date.now(),
-            name:name,
-            email:email,
-            password:password,
-            role:0,
-            createAt: new Date().toISOString()
-        }
-        // add user
-        users.push(newUser);
-
-        // save to local stroge
-        saveUsers(users);
-
-        Swal.fire({
-            icon: "success",
-            title: "Account Created!",
-            text: `Welcome ${name}! Your account has been created successfully.`,
-            confirmButtonText: "Continue",
-            confirmButtonColor: "#8B6A8D"
-        }).then(()=>{
-            registerForm.reset();
-            showLoginForm();
-        })
-    }
-);
-
+}
 /* =========================
    LOGIN
 ========================= */
@@ -321,8 +503,7 @@ if (loginForm) {
                 title:
                     `Welcome, ${user.name}!`,
 
-                text:
-                    getRoleName(user.role),
+                text: "this is a test",
 
                 timer: 1500,
 
