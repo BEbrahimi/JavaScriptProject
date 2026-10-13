@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="css/quickSearch.css">
   <link rel="stylesheet" href="css/destination.css">
   <link rel="stylesheet" href="css/sitebar.css">
+  <link rel="stylesheet" href="css/booking.css">
 </head>
 
 <body>
@@ -332,6 +333,203 @@
 
       </div>
     </section>
+
+    <section class="booking-section" id="booking">
+      <div class="container">
+        <div class="booking-heading">
+          <span class="booking-eyebrow">
+            <i class="fa-solid fa-calendar-check"></i>
+            Travel Planning
+          </span>
+          <h2>Plan Your Afghan Adventure</h2>
+          <p>Book a destination, find your stay, or reserve a car for your journey.</p>
+        </div>
+
+        <div class="booking-options">
+          <article class="booking-card">
+            <div class="booking-icon">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <h3>Book a Destination</h3>
+            <p>Plan a visit to Afghanistan's beautiful tourist destinations.</p>
+            <button class="btn btn-primary" data-booking-type="destination">
+              Book a Visit
+            </button>
+          </article>
+
+          <article class="booking-card">
+            <div class="booking-icon">
+              <i class="fa-solid fa-hotel"></i>
+            </div>
+            <h3>Book a Hotel</h3>
+            <p>Choose your accommodation, dates, rooms, and guests.</p>
+            <button class="btn btn-primary" data-booking-type="hotel">
+              Book a Hotel
+            </button>
+          </article>
+
+          <article class="booking-card">
+            <div class="booking-icon">
+              <i class="fa-solid fa-car"></i>
+            </div>
+            <h3>Book a Car</h3>
+            <p>Choose a vehicle and arrange your pickup and return.</p>
+            <button class="btn btn-primary" data-booking-type="car">
+              Book a Car
+            </button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <div class="booking-modal" id="booking-modal" hidden>
+      <div class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="booking-title">
+
+        <button type="button" class="booking-close" id="booking-close" aria-label="Close booking form">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <div class="booking-form-heading">
+          <span class="booking-eyebrow">Afghanistan Walk</span>
+          <h2 id="booking-title">Complete Your Booking</h2>
+          <p>Your account information will be used for this reservation.</p>
+        </div>
+
+        <form id="booking-form">
+          <div class="booking-user-info">
+            <div>
+              <label for="booking-name">Full Name</label>
+              <input id="booking-name" name="fullName" required autocomplete="name" maxlength="100">
+            </div>
+            <div>
+              <label for="booking-email">Email Address</label>
+              <input id="booking-email" name="email" type="email" required autocomplete="email" maxlength="254">
+            </div>
+          </div>
+
+          <div class="booking-field">
+            <label for="booking-phone">Phone Number</label>
+            <input id="booking-phone" name="phone" type="tel" required autocomplete="tel" maxlength="25">
+          </div>
+
+          <div id="destination-fields" hidden>
+            <div class="booking-field">
+              <label for="booking-destination">Destination</label>
+              <input id="booking-destination" name="destination" placeholder="e.g. Band-e Amir, Bamyan" maxlength="150">
+            </div>
+
+            <div class="booking-grid">
+              <div>
+                <label for="visit-date">Visit Date</label>
+                <input id="visit-date" name="visitDate" type="date">
+              </div>
+              <div>
+                <label for="visit-guests">Number of Visitors</label>
+                <input id="visit-guests" name="visitors" type="number" min="1" max="100" value="2">
+              </div>
+            </div>
+
+            <div class="booking-field">
+              <label for="visit-service">Additional Service</label>
+              <select id="visit-service" name="visitService">
+                <option value="none">No additional service</option>
+                <option value="guide">Tour Guide</option>
+                <option value="transport">Transportation</option>
+                <option value="guide-transport">Guide and Transportation</option>
+              </select>
+            </div>
+          </div>
+
+          <div id="hotel-fields" hidden>
+            <div class="booking-field">
+              <label for="booking-hotel">Hotel Name or Location</label>
+              <input id="booking-hotel" name="hotel" placeholder="Enter hotel name or city" maxlength="150">
+            </div>
+
+            <div class="booking-grid">
+              <div>
+                <label for="hotel-checkin">Check-in</label>
+                <input id="hotel-checkin" name="checkIn" type="date">
+              </div>
+              <div>
+                <label for="hotel-checkout">Check-out</label>
+                <input id="hotel-checkout" name="checkOut" type="date">
+              </div>
+              <div>
+                <label for="hotel-rooms">Rooms</label>
+                <input id="hotel-rooms" name="rooms" type="number" min="1" max="20" value="1">
+              </div>
+              <div>
+                <label for="hotel-guests">Guests</label>
+                <input id="hotel-guests" name="guests" type="number" min="1" max="50" value="2">
+              </div>
+            </div>
+          </div>
+
+          <div id="car-fields" hidden>
+            <div class="booking-field">
+              <label for="car-type">Vehicle Type</label>
+              <select id="car-type" name="carType">
+                <option value="economy">Economy Car</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV / 4x4</option>
+                <option value="van">Van / Minibus</option>
+                <option value="with-driver">Car with Driver</option>
+              </select>
+            </div>
+
+            <div class="booking-field">
+              <label for="car-pickup">Pickup Location</label>
+              <input id="car-pickup" name="pickup" placeholder="Enter pickup address" maxlength="200">
+            </div>
+
+            <div class="booking-field">
+              <label for="car-return-location">Return Location</label>
+              <input id="car-return-location" name="returnLocation" placeholder="Enter return address" maxlength="200">
+            </div>
+
+            <div class="booking-grid">
+              <div>
+                <label for="car-start">Pickup Date</label>
+                <input id="car-start" name="pickupDate" type="date">
+              </div>
+              <div>
+                <label for="car-end">Return Date</label>
+                <input id="car-end" name="returnDate" type="date">
+              </div>
+              <div>
+                <label for="car-time">Pickup Time</label>
+                <input id="car-time" name="pickupTime" type="time">
+              </div>
+            </div>
+
+            <div class="booking-field">
+              <label for="car-passengers">Number of Passengers</label>
+              <input id="car-passengers" name="passengers" type="number" min="1" max="30" value="2">
+            </div>
+          </div>
+
+          <div class="booking-field">
+            <label for="booking-notes">Additional Notes (Optional)</label>
+            <textarea id="booking-notes" name="notes" rows="3" maxlength="1000"
+              placeholder="Any special requests or additional information..."></textarea>
+          </div>
+
+          <p class="booking-notice">
+            Submitting this form creates a booking request. It does not confirm
+            availability or guarantee a reservation.
+          </p>
+
+          <div id="booking-message" class="booking-message" role="status" aria-live="polite"></div>
+
+          <button class="btn btn-primary booking-submit" type="submit">
+            <i class="fa-solid fa-calendar-check"></i>
+            Submit Booking Request
+          </button>
+        </form>
+      </div>
+    </div>
+
   </main>
 </body>
 <script src="js/slider.js"></script>

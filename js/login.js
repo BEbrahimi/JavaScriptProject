@@ -1,103 +1,323 @@
-const authBox = document.querySelector(".auth-box");
-const registerBtn = document.getElementById("registerBtn");
-const loginBtn = document.getElementById("loginBtn");
-const showRegister = document.getElementById("showRegister");
-const showLogin = document.getElementById("showLogin");
+const authBox =
+    document.querySelector(".auth-box");
 
 
-const USER_KEY = "aw_users";
-const CURRENT_USER_KEY = "aw_current_user";
+const registerBtn =
+    document.getElementById("registerBtn");
 
-function showRegisterForm(){
-    authBox.classList.add("register-active");
+
+const loginBtn =
+    document.getElementById("loginBtn");
+
+
+const showRegister =
+    document.getElementById("showRegister");
+
+
+const showLogin =
+    document.getElementById("showLogin");
+
+
+/** =========================
+ *  STORAGE KEYS
+ * ========================= */
+
+const USERS_KEY =
+    "aw_users";
+
+
+const CURRENT_USER_KEY =
+    "aw_current_user";
+
+
+/** =========================
+ *  SLIDER
+ * ========================= */
+
+function showRegisterForm() {
+
+    if (!authBox) {
+        return;
+    }
+
+    authBox.classList.add(
+        "register-active"
+    );
+
 }
 
-function showLoginForm(){
-    authBox.classList.remove("register-active");
-}
 
-if(showRegister){
-    registerBtn.addEventListener("click",showRegisterForm)
-}
+function showLoginForm() {
 
-if(registerBtn){
-    registerBtn.addEventListener("click",showRegisterForm)
-}
-if(showLogin){
-    loginBtn.addEventListener("click",showLoginForm)
-}
-if(loginBtn){
-    loginBtn.addEventListener("click",showLoginForm)
+    if (!authBox) {
+        return;
+    }
+
+    authBox.classList.remove(
+        "register-active"
+    );
+
 }
 
 
-// get users
+/** =========================
+ *  AUTH BUTTONS
+ * ========================= */
 
-function getUsers(){
-    return JSON.parse(
-        localStorage.getItem(USER_KEY)
-    ) || [];
+if (registerBtn) {
+
+    registerBtn.addEventListener(
+        "click",
+        showRegisterForm
+    );
+
 }
 
-// save users
 
-function saveUsers(users){
-    localStorage.setItem(
-        USER_KEY,
-        JSON.stringify(users)
-    )
+if (showRegister) {
+
+    showRegister.addEventListener(
+        "click",
+        showRegisterForm
+    );
+
 }
 
-// get current user
 
-function getCurrentUser(){
-    try{
+if (loginBtn) {
+
+    loginBtn.addEventListener(
+        "click",
+        showLoginForm
+    );
+
+}
+
+
+if (showLogin) {
+
+    showLogin.addEventListener(
+        "click",
+        showLoginForm
+    );
+
+}
+
+
+/** =========================
+ *  GET USERS
+ * ========================= */
+
+function getUsers() {
+
+    try {
+
         return JSON.parse(
-       sessionStorage.getItem(
-        CURRENT_USER_KEY
-       ) 
-    )|| null;
+            localStorage.getItem(
+                USERS_KEY
+            )
+        ) || [];
+
     }
-    catch (error){
-        console.error("error", error);
+
+    catch (error) {
+
+        console.error(
+            "Users data error:",
+            error
+        );
+
+        return [];
+
+    }
+
+}
+
+
+/** =========================
+ *  SAVE USERS
+ * ========================= */
+
+function saveUsers(users) {
+
+    localStorage.setItem(
+        USERS_KEY,
+        JSON.stringify(users)
+    );
+
+}
+
+
+/** =========================
+ *  GET CURRENT USER
+ * ========================= */
+
+function getCurrentUser() {
+
+    try {
+
+        return JSON.parse(
+            sessionStorage.getItem(
+                CURRENT_USER_KEY
+            )
+        ) || null;
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Current user data error:",
+            error
+        );
+
         return null;
+
     }
+
 }
 
-// check login
-function isLoggedIn(){
+
+/** =========================
+ *  CHECK LOGIN
+ * ========================= */
+
+function isLoggedIn() {
+
     return getCurrentUser() !== null;
+
 }
 
 
-// seve current user
+/** =========================
+ *  SAVE CURRENT USER
+ * ========================= */
 
-function setCurrentUser(user){
+function setCurrentUser(user) {
+
     const sessionUser = {
-        id: user.id,
-        name:user.name,
-        email:user.email,
-        role: Number(user.role ?? 0)
+
+        id:
+            user.id,
+
+        name:
+            user.name,
+
+        email:
+            user.email,
+
+        role:
+            Number(user.role ?? 0)
+
     };
+
 
     sessionStorage.setItem(
         CURRENT_USER_KEY,
         JSON.stringify(sessionUser)
-    )
+    );
+
 }
 
-// logout
-function logoutUser(){
+
+/** =========================
+ *  ROLE NAME
+ * ========================= */
+
+function getRoleName(role) {
+
+    switch (Number(role)) {
+
+        case 0:
+
+            return "You are logged in as a User.";
+
+        case 1:
+
+            return "You are logged in as a Manager.";
+
+        case 2:
+
+            return "You are logged in as an Editor.";
+
+        case 3:
+
+            return "You are logged in as an Administrator.";
+
+        default:
+
+            return "You are logged in as a User.";
+
+    }
+
+}
+
+
+/** =========================
+ *  ROLE LABEL
+ * ========================= */
+
+function getRoleLabel(role) {
+
+    switch (Number(role)) {
+
+        case 0:
+
+            return "User";
+
+        case 1:
+
+            return "Manager";
+
+        case 2:
+
+            return "Editor";
+
+        case 3:
+
+            return "Administrator";
+
+        default:
+
+            return "User";
+
+    }
+
+}
+
+
+/** =========================
+ *  LOGOUT
+ * ========================= */
+
+function logoutUser() {
+
     sessionStorage.removeItem(
         CURRENT_USER_KEY
     );
-    window.location.href ="index.html";
+
+
+    localStorage.removeItem(
+        "loginTime"
+    );
+
+
+    window.location.href =
+        "index.html";
+
 }
 
 
-// register
+/** =========================
+ *  REGISTER
+ * ========================= */
 
-const registerForm = document.getElementById("registerForm");
+const registerForm =
+    document.getElementById(
+        "registerForm"
+    );
+
+
 if (registerForm) {
 
     registerForm.addEventListener(
@@ -297,8 +517,7 @@ if (registerForm) {
                 password:
                     password,
 
-                role:
-                    0,
+                role: 0,
 
                 emailVerified:
                     true,
@@ -360,11 +579,16 @@ if (registerForm) {
     );
 
 }
-/* =========================
-   LOGIN
-========================= */
+
+
+/** =========================
+ *  LOGIN
+ * ========================= */
+
 const loginForm =
-    document.getElementById("loginForm");
+    document.getElementById(
+        "loginForm"
+    );
 
 
 if (loginForm) {
@@ -376,28 +600,64 @@ if (loginForm) {
             event.preventDefault();
 
 
+            /** =========================
+             *  GET LOGIN DATA
+             * ========================= */
+
             const email =
                 document.getElementById(
                     "loginEmail"
-                ).value.trim().toLowerCase();
+                )?.value
+                .trim()
+                .toLowerCase();
 
 
             const password =
                 document.getElementById(
                     "loginPassword"
-                ).value;
+                )?.value;
 
 
-            /* =========================
-               GET USERS
-            ========================= */
+            if (
+                !email ||
+                !password
+            ) {
 
-            const users = getUsers();
+                Swal.fire({
+
+                    icon:
+                        "warning",
+
+                    title:
+                        "Missing Information",
+
+                    text:
+                        "Please enter your email and password.",
+
+                    confirmButtonText:
+                        "OK",
+
+                    confirmButtonColor:
+                        "#8B6A8D"
+
+                });
+
+                return;
+
+            }
 
 
-            /* =========================
-               FIND USER
-            ========================= */
+            /** =========================
+             *  GET USERS
+             * ========================= */
+
+            const users =
+                getUsers();
+
+
+            /** =========================
+             *  FIND USER
+             * ========================= */
 
             const user =
                 users.find(
@@ -407,34 +667,39 @@ if (loginForm) {
                 );
 
 
-            /* =========================
-               INVALID LOGIN
-            ========================= */
+            /** =========================
+             *  INVALID LOGIN
+             * ========================= */
 
             if (!user) {
 
                 Swal.fire({
 
-                    icon: "error",
+                    icon:
+                        "error",
 
-                    title: "Login Failed",
+                    title:
+                        "Login Failed",
 
                     text:
                         "Invalid email or password.",
 
-                    confirmButtonText: "Try Again",
+                    confirmButtonText:
+                        "Try Again",
 
-                    confirmButtonColor: "#8B6A8D"
+                    confirmButtonColor:
+                        "#8B6A8D"
 
                 });
 
                 return;
+
             }
 
 
-            /* =========================
-               CHECK EMAIL VERIFICATION
-            ========================= */
+            /** =========================
+             *  CHECK EMAIL VERIFICATION
+             * ========================= */
 
             if (
                 user.emailVerified === false
@@ -442,9 +707,11 @@ if (loginForm) {
 
                 Swal.fire({
 
-                    icon: "warning",
+                    icon:
+                        "warning",
 
-                    title: "Email Not Verified",
+                    title:
+                        "Email Not Verified",
 
                     text:
                         "Please verify your email before logging in.",
@@ -458,33 +725,41 @@ if (loginForm) {
                 });
 
                 return;
+
             }
 
 
-            /* =========================
-               DEFAULT ROLE
-            ========================= */
+            /** =========================
+             *  DEFAULT ROLE
+             * ========================= */
 
             if (
                 user.role === undefined ||
                 user.role === null
             ) {
 
-                user.role = 0;
+                user.role =
+                    0;
 
             }
 
 
-            /* =========================
-               SAVE CURRENT USER
-            ========================= */
-
-            setCurrentUser(user);
+            user.role =
+                Number(user.role);
 
 
-            /* =========================
-               SAVE LOGIN TIME
-            ========================= */
+            /** =========================
+             *  SAVE CURRENT USER
+             * ========================= */
+
+            setCurrentUser(
+                user
+            );
+
+
+            /** =========================
+             *  SAVE LOGIN TIME
+             * ========================= */
 
             localStorage.setItem(
                 "loginTime",
@@ -492,22 +767,28 @@ if (loginForm) {
             );
 
 
-            /* =========================
-               SUCCESS
-            ========================= */
+            /** =========================
+             *  SUCCESS
+             * ========================= */
 
             Swal.fire({
 
-                icon: "success",
+                icon:
+                    "success",
 
                 title:
                     `Welcome, ${user.name}!`,
 
-                text: "this is a test",
+                text:
+                    getRoleName(
+                        user.role
+                    ),
 
-                timer: 1500,
+                timer:
+                    1500,
 
-                showConfirmButton: false
+                showConfirmButton:
+                    false
 
             }).then(() => {
 
@@ -521,34 +802,58 @@ if (loginForm) {
 
 }
 
-/* =========================
-   REQUIRE LOGIN
-========================= */
+
+/** =========================
+ *  REQUIRE LOGIN
+ * ========================= */
+
 function requireLogin() {
 
-    if (isLoggedIn()) {
+    if (
+        isLoggedIn()
+    ) {
+
         return true;
+
     }
 
+
     Swal.fire({
-        icon: "info",
-        title: "Login Required",
+
+        icon:
+            "info",
+
+        title:
+            "Login Required",
+
         text:
             "Please login first to use this feature.",
-        showCancelButton: true,
-        confirmButtonText: "Login",
-        cancelButtonText: "Cancel"
 
-    }).then((result) => {
-        if (result.isConfirmed) {
-            window.location.href =
-                "loginForm.html";
+        showCancelButton:
+            true,
+
+        confirmButtonText:
+            "Login",
+
+        cancelButtonText:
+            "Cancel"
+
+    }).then(
+        (result) => {
+
+            if (
+                result.isConfirmed
+            ) {
+
+                window.location.href =
+                    "loginForm.html";
+
+            }
 
         }
-    });
+    );
+
 
     return false;
+
 }
-
-
-

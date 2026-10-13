@@ -1,0 +1,239 @@
+
+.booking-section {
+  padding: 80px 0;
+  background: #fbfaff;
+}
+
+.booking-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 38px;
+}
+
+.booking-eyebrow {
+  display: inline-block;
+  color: #8b6a8d;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.booking-heading h2,
+.booking-form-heading h2 {
+  color: #29253a;
+  font-family: "Fraunces", serif;
+  margin: 0 0 12px;
+}
+
+.booking-heading p,
+.booking-form-heading p {
+  color: #777286;
+  line-height: 1.7;
+}
+
+.booking-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.booking-card {
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #ece8f5;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(55, 40, 85, 0.06);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 35px rgba(55, 40, 85, 0.11);
+}
+
+.booking-icon {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: #ede8fb;
+  color: #8b6a8d;
+  font-size: 23px;
+  margin-bottom: 20px;
+}
+
+.booking-card h3 {
+  color: #29253a;
+  margin: 0 0 10px;
+}
+
+.booking-card p {
+  min-height: 52px;
+  color: #777286;
+  line-height: 1.7;
+  margin-bottom: 22px;
+}
+
+.booking-modal[hidden],
+.booking-modal [hidden] {
+  display: none !important;
+}
+
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(25, 20, 40, 0.65);
+  backdrop-filter: blur(5px);
+}
+
+.booking-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 35px;
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.2);
+}
+
+.booking-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 50%;
+  background: #f2eff9;
+  color: #5e536e;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.booking-form-heading {
+  margin-bottom: 26px;
+  padding-right: 25px;
+}
+
+.booking-form-heading h2 {
+  font-size: 28px;
+}
+
+.booking-user-info,
+.booking-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-bottom: 18px;
+}
+
+.booking-field {
+  margin-bottom: 18px;
+}
+
+.booking-dialog label {
+  display: block;
+  margin-bottom: 8px;
+  color: #403a51;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.booking-dialog input,
+.booking-dialog select,
+.booking-dialog textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 14px;
+  border: 1px solid #e4dfef;
+  border-radius: 10px;
+  background: #fff;
+  color: #302b40;
+  font: inherit;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.booking-dialog input:focus,
+.booking-dialog select:focus,
+.booking-dialog textarea:focus {
+  border-color: #8b6a8d;
+  box-shadow: 0 0 0 3px rgba(139, 106, 141, 0.12);
+}
+
+.booking-dialog textarea {
+  resize: vertical;
+}
+
+.booking-notice {
+  padding: 13px;
+  border-radius: 10px;
+  background: #f7f4fc;
+  color: #6c627b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.booking-message {
+  margin: 12px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.booking-message:empty {
+  display: none;
+}
+
+.booking-message.error {
+  color: #b42318;
+}
+
+.booking-message.success {
+  color: #18794e;
+}
+
+.booking-submit {
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+
+@media (max-width: 800px) {
+  .booking-options {
+    grid-template-columns: 1fr;
+  }
+
+  .booking-card p {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 520px) {
+  .booking-section {
+    padding: 55px 0;
+  }
+
+  .booking-dialog {
+    padding: 25px 18px;
+    border-radius: 16px;
+  }
+
+  .booking-form-heading h2 {
+    font-size: 23px;
+  }
+
+  .booking-user-info,
+  .booking-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
